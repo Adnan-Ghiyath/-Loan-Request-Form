@@ -1,0 +1,223 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #1a0a6b;
+  --surface: #2a1a8a;
+  --accent: #ff2d6b;
+  --accent2: #5b3fff;
+  --text: #e8e0ff;
+  --label: #b8aaff;
+  --input-bg: #ffffff;
+  --input-text: #111;
+  --border-glow: rgba(91, 63, 255, 0.6);
+  --check-blue: #2563eb;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  background-image:
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(91, 63, 255, 0.18) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 80% 80%,
+      rgba(255, 45, 107, 0.1) 0%,
+      transparent 55%
+    );
+  font-family: "Rajdhani", sans-serif;
+  padding: 2rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 720px;
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 2.8rem 3rem 2.5rem;
+  box-shadow:
+    0 0 0 1.5px rgba(91, 63, 255, 0.35),
+    0 8px 60px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(91, 63, 255, 0.08);
+  animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  margin-bottom: 2rem;
+}
+
+.field {
+  margin-bottom: 1.35rem;
+}
+
+.field label {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--label);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field input[type="numeric"],
+.field select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: var(--input-bg);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--input-text);
+  font-family: "Rajdhani", sans-serif;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.field input:focus,
+.field select:focus {
+  box-shadow: 0 0 0 2.5px var(--accent2);
+}
+
+.field select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+/* Checkbox row */
+.checkbox-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.35rem;
+}
+
+.checkbox-field label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--label);
+  margin-bottom: 0.55rem;
+  letter-spacing: 0.03em;
+}
+
+.checkbox-wrap {
+  width: 36px;
+  height: 36px;
+  background: var(--check-blue);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.4);
+  transition:
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.checkbox-wrap:hover {
+  box-shadow: 0 2px 18px rgba(37, 99, 235, 0.65);
+}
+
+.checkbox-wrap input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: none;
+}
+
+.checkbox-wrap.checked svg {
+  display: block;
+}
+
+.checkbox-wrap.unchecked {
+  background: #374151;
+  box-shadow: none;
+}
+
+/* Submit */
+.submit-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.submit-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2.8rem;
+  border-radius: 8px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(255, 45, 107, 0.45);
+  transition:
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 45, 107, 0.6);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
